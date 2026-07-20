@@ -1,20 +1,9 @@
-"""
-Práctica FastAPI + Hugging Face
---------------------------------
-Ejecutar con:
-    uvicorn fastapi_app:app --reload
-
-Documentación automática en:
-    http://127.0.0.1:8000/docs
-"""
-
 from fastapi import FastAPI, Query
 from transformers import pipeline
 
 app = FastAPI(title="Mi API de Practica - FastAPI + Hugging Face")
 
-# Cargamos los pipelines de Hugging Face UNA sola vez al arrancar el servidor
-# (así no se recargan en cada petición, lo cual sería muy lento)
+#Cargamos los pipelines de Hugging Face UNA sola vez al arrancar el servidor (así no se recargan en cada petición, lo cual sería muy lento)
 sentiment_pipeline = pipeline("sentiment-analysis")
 summarization_pipeline = pipeline("summarization")
 
